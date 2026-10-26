@@ -13,23 +13,33 @@ export const contact = {
 /**
  * Opening thread: real lines from the chat (400-overview.md), with the real
  * sender where we know it (crew order: 0 Joyce, 1 Leslie, 2 Elton, 3 Efo).
- * `from` left out = sender unknown, shown with a neutral avatar.
- * All four must approve every line before launch.
+ * `from` left out = sender unknown, shown without a name. Times only where
+ * we know them; the date separators carry the rest. All four approve before launch.
  */
-export const introThread: { at: string; from?: 0 | 1 | 2 | 3; text?: string; sticker?: boolean }[] = [
-  { at: "23/04/25 14:54", from: 0, text: "Good afternoon guys, this group is for the semester project" },
-  { at: "14:55", from: 1, sticker: true },
-  { at: "12/06/25", from: 0, text: "Project success ✅ Close project." },
-  { at: "05/09/25", from: 2, text: "renamed the group “400”" },
-  { at: "14/10/25", from: 1, text: "I say we run these projects as a company." },
-  { at: "05/11/25", from: 2, text: "We're live." },
-  { at: "23:40", text: "come merge my PR for me" },
-  { at: "01:12", from: 3, sticker: true },
-  { at: "25/12/25", from: 1, text: "this friend group is top-tier and still in active development." },
-  { at: "13:20", text: "turkey or chicken?" },
-  { at: "06/07/26", from: 1, text: "Guyssssssssss We live." },
-  { at: "07/07/26", from: 2, text: "i wan somersault" },
-  { at: "23/10/26", from: 3, text: "more are still being cooked" },
+export type IntroItem =
+  | { kind: "date"; text: string }
+  | { kind: "msg"; from?: 0 | 1 | 2 | 3; text: string; at?: string }
+  | { kind: "sticker"; from?: 0 | 1 | 2 | 3; at?: string }
+  | { kind: "rename"; from: 0 | 1 | 2 | 3; to: string };
+
+export const introThread: IntroItem[] = [
+  { kind: "date", text: "23 April 2025" },
+  { kind: "msg", from: 0, text: "Good afternoon guys, this group is for the semester project", at: "14:54" },
+  { kind: "sticker", from: 1, at: "14:55" },
+  { kind: "date", text: "12 June 2025" },
+  { kind: "msg", from: 0, text: "Project success ✅ Close project." },
+  { kind: "date", text: "5 September 2025" },
+  { kind: "rename", from: 2, to: "400" },
+  { kind: "date", text: "14 October 2025" },
+  { kind: "msg", from: 1, text: "I say we run these projects as a company." },
+  { kind: "date", text: "5 November 2025" },
+  { kind: "msg", from: 2, text: "We're live." },
+  { kind: "date", text: "6 July 2026" },
+  { kind: "msg", from: 1, text: "Guyssssssssss We live." },
+  { kind: "date", text: "7 July 2026" },
+  { kind: "msg", from: 2, text: "i wan somersault" },
+  { kind: "date", text: "23 October 2026" },
+  { kind: "msg", from: 3, text: "more are still being cooked" },
 ];
 
 /** Hero background feed: real moments from the work. */

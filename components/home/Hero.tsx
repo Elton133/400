@@ -8,6 +8,7 @@ import { useRef } from "react";
 import { Icon } from "@/components/Icon";
 import { crew } from "@/content/crew";
 import { activity } from "@/content/site";
+import { INTRO_DONE } from "./ChatIntro";
 
 const LINES = ["We ship from", "the group chat"];
 
@@ -20,16 +21,18 @@ export function Hero() {
     () => {
       if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
       // The weight axis does the work: each line settles from light to heavy.
-      gsap.from("[data-line]", {
-        fontWeight: 300,
-        yPercent: 30,
-        autoAlpha: 0,
-        duration: 1,
-        ease: "expo.out",
-        stagger: 0.08,
-        delay: document.documentElement.getAttribute("data-intro") === "seen" ? 0.05 : 0.2,
-      });
-      gsap.from("[data-rise]", { autoAlpha: 0, y: 16, duration: 0.8, ease: "power3.out", stagger: 0.08, delay: 0.35 });
+      // If the chat intro is still playing, wait for it to hand off.
+      const waiting = document.documentElement.getAttribute("data-intro") !== "seen";
+      const tl = gsap.timeline({ paused: waiting, delay: 0.05 });
+      tl.from("[data-line]", { fontWeight: 300, yPercent: 30, autoAlpha: 0, duration: 1, ease: "expo.out", stagger: 0.08 }).from(
+        "[data-rise]",
+        { autoAlpha: 0, y: 16, duration: 0.8, ease: "power3.out", stagger: 0.08 },
+        0.3,
+      );
+      if (!waiting) return;
+      const go = () => tl.play();
+      window.addEventListener(INTRO_DONE, go, { once: true });
+      return () => window.removeEventListener(INTRO_DONE, go);
     },
     { scope: root },
   );
