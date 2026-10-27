@@ -67,8 +67,12 @@ export function FlapText({
     };
   }, [key, visible, stagger]);
 
+  // Callers that hide the flaps on small screens ("hidden lg:inline-flex") set
+  // the display themselves; a default inline-flex here would override "hidden".
+  const display = /(^|\s)hidden(\s|$)/.test(className) ? "" : "inline-flex ";
+
   return (
-    <span ref={ref} className={`inline-flex whitespace-pre font-mono font-bold ${className}`} aria-hidden>
+    <span ref={ref} className={`${display}whitespace-pre font-mono font-bold ${className}`} aria-hidden>
       {chars.map((c, i) => (
         <span key={i} className="flap">
           <span>{c}</span>

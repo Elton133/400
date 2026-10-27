@@ -21,10 +21,10 @@ export type Sticker = {
 };
 
 export const STICKERS: Sticker[] = [
-  { id: "note", layer: "StickyNote", kind: "note", text: "Sleep was just a rumor to us.", x: 19, y: 22, tilt: -4 },
+  { id: "note", layer: "StickyNote", kind: "note", text: "Sleep was just a rumor to us.", x: 24, y: 22, tilt: -4 },
   { id: "somersault", layer: "ChatBubble", kind: "bubble", text: "i wan somersault", sub: "07.07.26 · Beagine Pro goes live", x: 52, y: 12 },
   { id: "trumpet", layer: "Trumpet", kind: "pill", text: "Trumpet", icon: "trumpet", x: 82, y: 22, tilt: 3 },
-  { id: "sax", layer: "Saxophone", kind: "pill", text: "Saxophone", icon: "sax", x: 85, y: 40, tilt: -2 },
+  { id: "sax", layer: "Saxophone", kind: "pill", text: "Saxophone", icon: "sax", x: 80, y: 40, tilt: -2 },
   { id: "chelsea", layer: "Chelsea", kind: "badge", text: "Chelsea", sub: "the club", x: 76, y: 66 },
   { id: "beagine", layer: "Beagine", kind: "beagine", text: "Beagine", sub: "co-founder", x: 16, y: 82, tilt: 2 },
   { id: "unicliq", layer: "UniCliqLogo", kind: "unicliq", text: "uniCLIQ", sub: "logo · 17.10.25", x: 52, y: 86, tilt: -3 },

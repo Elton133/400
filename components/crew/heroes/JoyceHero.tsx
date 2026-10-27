@@ -44,7 +44,7 @@ export function JoyceHero(props: HeroProps) {
       <div className="wrap relative pt-10 pb-24 md:pt-14 md:pb-32">
         <HeroTop {...props} />
 
-        <div className="mt-14 grid items-center gap-14 lg:grid-cols-[1.05fr_1fr]">
+        <div className="mt-14 grid grid-cols-[minmax(0,1fr)] items-center gap-14 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,1fr)]">
           <div>
             <p className="flex items-center gap-2 font-mono text-[11px] tracking-[0.2em] text-amber uppercase">
               <Icon icon={CrownIcon} size={16} /> All hail the queen
@@ -76,13 +76,13 @@ export function JoyceHero(props: HeroProps) {
               <div className="grid grid-cols-[1fr_auto_1fr] items-end gap-3 px-6 pt-7">
                 <div>
                   <p className="font-mono text-[10px] tracking-[0.18em] text-ink/50 uppercase">From</p>
-                  <p className="display mt-1 text-5xl">CHAT</p>
+                  <p className="display mt-1 text-4xl sm:text-5xl">CHAT</p>
                   <p className="mt-1 text-[13px] text-ink/60">The group chat</p>
                 </div>
                 <Icon icon={AirplaneTakeOff01Icon} size={28} className="mb-8 text-ink/40" />
                 <div className="text-right">
                   <p className="font-mono text-[10px] tracking-[0.18em] text-ink/50 uppercase">To</p>
-                  <p className="display mt-1 text-5xl">WIN</p>
+                  <p className="display mt-1 text-4xl sm:text-5xl">WIN</p>
                   <p className="mt-1 text-[13px] text-ink/60">The next client</p>
                 </div>
               </div>

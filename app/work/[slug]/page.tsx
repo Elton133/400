@@ -54,8 +54,8 @@ export default async function ProjectPage({ params }: PageProps<"/work/[slug]">)
             <Confirm items={p.confirm} className="mt-4" />
           </header>
 
-          <div className="mt-16 grid gap-16 lg:grid-cols-[1fr_300px]">
-            <dl className="grid content-start gap-12">
+          <div className="mt-16 grid grid-cols-[minmax(0,1fr)] gap-16 lg:grid-cols-[minmax(0,1fr)_300px]">
+            <dl className="grid min-w-0 grid-cols-[minmax(0,1fr)] content-start gap-12">
               {p.problem && (
                 <div>
                   <dt className="label">THE PROBLEM</dt>

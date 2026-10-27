@@ -135,7 +135,7 @@ export default async function CrewMemberPage({ params }: PageProps<"/crew/[id]">
             <div className="wrap">
               <p className="font-mono text-[11px] tracking-[0.2em] text-paper/50 uppercase">Lives by</p>
               {m.mottos.map((motto) => (
-                <p key={motto} className="display mt-6 text-[clamp(3rem,8vw,7.5rem)] uppercase">
+                <p key={motto} className="display mt-6 text-[clamp(2.25rem,8.5vw,7.5rem)] uppercase">
                   {motto}
                 </p>
               ))}

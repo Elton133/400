@@ -63,7 +63,7 @@ export function DepartureBoard({
       <div
         role="group"
         aria-label="Filter the board"
-        className="-mx-4 mb-6 flex snap-x gap-2 overflow-x-auto px-4 pb-1 [scrollbar-width:none] sm:mx-0 sm:px-0"
+        className="-mx-4 mb-6 flex snap-x gap-2 overflow-x-auto scroll-px-4 px-4 pb-1 [scrollbar-width:none] sm:mx-0 sm:px-0"
       >
         {filters.map((f) => (
           <button
@@ -95,21 +95,21 @@ export function DepartureBoard({
             <Link
               href={`/work/${p.slug}`}
               aria-label={`${p.name}: ${laneLabel[p.lane].toLowerCase()}, ${statusLabel[p.status].toLowerCase()}${p.platforms.length ? `, ${p.platforms.join(", ")}` : ""}`}
-              className="group grid gap-x-6 gap-y-1.5 rounded-sm px-2 py-2 text-[15px] transition-all duration-200 hover:-translate-y-0.5 hover:bg-paper/5 sm:text-[17px] lg:col-span-4 lg:grid-cols-subgrid lg:items-center lg:text-[18px]"
+              className="group grid grid-cols-[minmax(0,1fr)] gap-x-6 gap-y-1.5 rounded-sm px-2 py-2 text-[15px] transition-all duration-200 hover:-translate-y-0.5 hover:bg-paper/5 sm:text-[17px] lg:col-span-4 lg:grid-cols-subgrid lg:items-center lg:text-[18px]"
             >
               <ViewTransition name={`project-${p.slug}`} share="morph" default="none">
                 <FlapText text={p.board} length={14} stagger={i} className="text-paper" />
               </ViewTransition>
-              <span className="flex items-center gap-3 lg:contents">
+              <span className="flex min-w-0 items-center gap-3 lg:contents">
                 <FlapText text={laneLabel[p.lane]} length={7} stagger={i} className="hidden text-paper/80 lg:inline-flex" />
-                <span className="flex items-center gap-2">
+                <span className="flex flex-none items-center gap-2">
                   <span className="status-light" data-status={p.status} />
                   <FlapText text={statusLabel[p.status]} length={13} stagger={i} className="hidden lg:inline-flex" />
-                  <span className="font-mono text-[11px] tracking-wider lg:hidden">
+                  <span className="font-mono text-[11px] tracking-wider whitespace-nowrap lg:hidden">
                     {statusLabel[p.status]} · {laneLabel[p.lane]}
                   </span>
                 </span>
-                <span className="ml-auto truncate font-mono text-[11px] tracking-wider text-paper/70 lg:ml-0 lg:text-[13px]">
+                <span className="ml-auto min-w-0 truncate font-mono text-[11px] tracking-wider text-paper/70 lg:ml-0 lg:text-[13px]">
                   {p.platforms.join(" · ").toUpperCase() || "TBC"}
                 </span>
               </span>
@@ -161,17 +161,17 @@ function CookingRow() {
       onFocus={() => setPeek(true)}
       onBlur={() => setPeek(false)}
       aria-label="Still cooking: an unannounced product"
-      className="group grid gap-x-6 gap-y-1.5 rounded-sm px-2 py-2 text-[15px] sm:text-[17px] lg:col-span-4 lg:grid-cols-subgrid lg:items-center lg:text-[18px]"
+      className="group grid grid-cols-[minmax(0,1fr)] gap-x-6 gap-y-1.5 rounded-sm px-2 py-2 text-[15px] sm:text-[17px] lg:col-span-4 lg:grid-cols-subgrid lg:items-center lg:text-[18px]"
     >
       <FlapText text={peek ? "NOT YET" : name} length={14} className="text-pink" />
-      <span className="flex items-center gap-3 lg:contents">
+      <span className="flex min-w-0 items-center gap-3 lg:contents">
         <FlapText text="PRODUCT" length={7} className="hidden text-paper/80 lg:inline-flex" />
-        <span className="flex items-center gap-2">
+        <span className="flex flex-none items-center gap-2">
           <span className="status-light" data-status="cooking" />
           <FlapText text="STILL COOKING" length={13} className="hidden lg:inline-flex" />
           <span className="font-mono text-[11px] tracking-wider lg:hidden">STILL COOKING</span>
         </span>
-        <span className="ml-auto font-mono text-[11px] tracking-wider text-paper/50 lg:ml-0 lg:text-[13px]">TBC</span>
+        <span className="ml-auto min-w-0 truncate font-mono text-[11px] tracking-wider text-paper/50 lg:ml-0 lg:text-[13px]">TBC</span>
       </span>
     </div>
   );

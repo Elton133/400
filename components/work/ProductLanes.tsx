@@ -37,7 +37,7 @@ export function ProductLanes({ products }: { products: Project[] }) {
 
   return (
     <MotionConfig reducedMotion="user">
-      <div className="grid gap-12 lg:grid-cols-[1fr_minmax(320px,36%)]">
+      <div className="grid grid-cols-[minmax(0,1fr)] gap-12 lg:grid-cols-[minmax(0,1fr)_minmax(320px,36%)]">
         <ol ref={list} className="relative">
           {/* the route line */}
           <span aria-hidden className="absolute top-3 bottom-3 left-[6px] w-0.5 bg-line-strong" />
@@ -46,7 +46,7 @@ export function ProductLanes({ products }: { products: Project[] }) {
               key={p.slug}
               data-slug={p.slug}
               {...arrive}
-              className="relative pb-24 pl-12 lg:min-h-[64vh] lg:pb-0"
+              className="relative pb-24 pl-10 sm:pl-12 lg:min-h-[64vh] lg:pb-0"
             >
               <span
                 aria-hidden
@@ -59,7 +59,7 @@ export function ProductLanes({ products }: { products: Project[] }) {
                 {statusLabel[p.status]}
                 <span className="text-muted">· {p.platforms.join(" · ")}</span>
               </p>
-              <h3 className="display t-section mt-5">
+              <h3 className="display mt-5 text-[clamp(2rem,9vw,5rem)]">
                 <Link href={`/work/${p.slug}`} className="transition-colors hover:text-muted">
                   {p.name}
                 </Link>

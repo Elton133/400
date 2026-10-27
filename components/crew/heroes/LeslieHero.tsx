@@ -29,7 +29,7 @@ export function LeslieHero(props: HeroProps) {
       {/* edgy: hard rules and a giant outlined backdrop */}
       <p
         aria-hidden
-        className={`${bebas.className} pointer-events-none absolute -right-6 -bottom-16 text-[42vw] leading-none text-transparent [-webkit-text-stroke:1px_rgb(255_255_255/0.08)] select-none`}
+        className={`${bebas.className} pointer-events-none absolute right-0 -bottom-16 text-[40vw] leading-none text-transparent [-webkit-text-stroke:1px_rgb(255_255_255/0.08)] select-none`}
       >
         ARES
       </p>
